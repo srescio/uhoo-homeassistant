@@ -7,5 +7,5 @@
   "version": "0.0.4",
   "config_flow": true,
   "codeowners": ["@csacca"],
-  "requirements": ["pyuhoo==0.0.5"]
+  "requirements": ["pyuhoo @ git+https://github.com/andrewleech/pyuhoo.git"]
 }
