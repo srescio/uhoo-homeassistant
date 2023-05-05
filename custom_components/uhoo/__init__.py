@@ -20,9 +20,10 @@ from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, Upda
 
 from .const import DOMAIN, LOGGER, PLATFORMS, STARTUP_MESSAGE, UPDATE_INTERVAL
 
+# https://github.com/home-assistant/example-custom-config/tree/master/custom_components
 
 async def async_setup(hass: HomeAssistant, config: Config) -> bool:
-    """Set up this integration using YAML is not supported."""
+    """Set up all platforms for this device/entry."""
     return True
 
 
@@ -58,10 +59,10 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
         raise ConfigEntryNotReady
 
     hass.data[DOMAIN][config_entry.entry_id] = coordinator
-
-    # Set up all platforms for this device/entry.
-    hass.config_entries.async_setup_platforms(config_entry, PLATFORMS)
-
+    for platform in PLATFORMS:
+        hass.async_add_job(hass.config_entries.async_forward_entry_setup(
+                config_entry, platform))
+   
     return True
 
 
