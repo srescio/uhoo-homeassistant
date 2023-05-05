@@ -4,8 +4,8 @@
   "documentation": "https://github.com/csacca/uhoo-homeassistant",
   "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/csacca/uhoo-homeassistant/issues",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "config_flow": true,
-  "codeowners": ["@csacca"],
-  "requirements": ["pyuhoo @ git+https://github.com/andrewleech/pyuhoo.git"]
+  "codeowners": ["@andrewleech", "@csacca"],
+  "requirements": ["pyuhoo @ git+https://github.com/andrewleech/pyuhoo.git@f2f05e756bd344b5571f76e3125d34ce56b7961c"]
 }
