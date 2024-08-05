@@ -16,11 +16,13 @@ This integration has been tested with the uHoo home device. It might work with t
 
 ![uHoo device view](uhoo-device-view.png)
 
+This is based on https://github.com/csacca/uhoo-homeassistant, updated for current compatibility.
+
 ## Installation
 
 ### HACS
 
-Add `https://github.com/csacca/uhoo-homeassistant` as a custom integration repository and install the uHoo integration.
+Add `https://github.com/andrewleech/uhoo-homeassistant` as a custom integration repository and install the uHoo integration.
 
 ### Manual
 
@@ -63,16 +65,16 @@ To run all project tests:
 poetry run pytest
 ```
 
-[build-shield]: https://github.com/csacca/uhoo-homeassistant/actions/workflows/ci.yaml/badge.svg
-[build]: https://github.com/csacca/uhoo-homeassistant/actions/workflows/ci.yaml
+[build-shield]: https://github.com/andrewleech/uhoo-homeassistant/actions/workflows/ci.yaml/badge.svg
+[build]: https://github.com/andrewleech/uhoo-homeassistant/actions/workflows/ci.yaml
 [hacs-shield]: https://img.shields.io/badge/HACS-Custom-orange.svg
 [hacs]: https://hacs.xyz/
-[license-shield]: https://img.shields.io/github/license/csacca/uhoo-homeassistant.svg
-[maintenance-shield]: https://img.shields.io/maintenance/yes/2021.svg
-[pre-commit-ci-shield]: https://results.pre-commit.ci/badge/github/csacca/uhoo-homeassistant/master.svg
-[pre-commit-ci]: https://results.pre-commit.ci/latest/github/csacca/uhoo-homeassistant/master
+[license-shield]: https://img.shields.io/github/license/andrewleech/uhoo-homeassistant.svg
+[maintenance-shield]: https://img.shields.io/maintenance/yes/2024.svg
+[pre-commit-ci-shield]: https://results.pre-commit.ci/badge/github/andrewleech/uhoo-homeassistant/master.svg
+[pre-commit-ci]: https://results.pre-commit.ci/latest/github/andrewleech/uhoo-homeassistant/master
 [poetry-install]: https://python-poetry.org/docs/#installation
 [poetry]: https://python-poetry.org
 [pre-commit]: https://pre-commit.com/
-[releases-shield]: https://img.shields.io/github/release/csacca/uhoo-homeassistant.svg
-[releases]: https://github.com/csacca/uhoo-homeassistant/releases
+[releases-shield]: https://img.shields.io/github/release/andrewleech/uhoo-homeassistant.svg
+[releases]: https://github.com/andrewleech/uhoo-homeassistant/releases
