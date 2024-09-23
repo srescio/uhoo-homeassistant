@@ -21,8 +21,8 @@ NAME = "uHoo Integration"
 MODEL = "uHoo Indoor Air Monitor"
 MANUFACTURER = "uHoo"
 DOMAIN = "uhoo"
-VERSION = "0.0.4"
-ISSUE_URL = "https://github.com/csacca/uhoo-homeassistant/issues"
+VERSION = "0.0.7"
+ISSUE_URL = "https://github.com/andrewleech/uhoo-homeassistant/issues"
 
 # Platforms
 SENSOR = "sensor"

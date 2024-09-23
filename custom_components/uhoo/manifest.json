@@ -6,12 +6,8 @@
   "issue_tracker": "https://github.com/andrewleech/uhoo-homeassistant/issues",
   "version": "0.0.7",
   "config_flow": true,
-  "codeowners": [
-    "@andrewleech",
-    "@csacca",
-    "@srescio"
-  ],
+  "codeowners": ["@andrewleech", "@csacca", "@srescio"],
   "requirements": [
-    "pyuhoo @ git+https://github.com/andrewleech/pyuhoo.git@f2f05e756bd344b5571f76e3125d34ce56b7961c"
+    "pyuhoo @ git+https://github.com/srescio/pyuhoo.git@46221c7dc4191450741c6650e5fe044f065a1f49"
   ]
 }
