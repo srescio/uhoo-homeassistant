@@ -8,6 +8,6 @@
   "config_flow": true,
   "codeowners": ["@andrewleech", "@csacca", "@srescio"],
   "requirements": [
-    "pyuhoo @ git+https://github.com/srescio/pyuhoo.git@46221c7dc4191450741c6650e5fe044f065a1f49"
+    "pyuhoo @ git+https://github.com/srescio/pyuhoo.git@f6dc1a9138009a0aeac68c4ae3c00df3cf490d8f"
   ]
 }
