@@ -3,7 +3,7 @@
 from pyuhoo.device import Device
 
 from custom_components.uhoo import UhooDataUpdateCoordinator
-from homeassistant.components.sensor import STATE_CLASS_MEASUREMENT, SensorEntity
+from homeassistant.components.sensor import SensorEntity, SensorStateClass
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import ConfigType
@@ -20,9 +20,8 @@ from .const import (
     MANUFACTURER,
     MODEL,
     SENSOR_TYPES,
-    TEMP_CELSIUS,
-    TEMP_FAHRENHEIT,
 )
+from homeassistant.const import UnitOfTemperature
 
 
 async def async_setup_entry(
@@ -92,7 +91,7 @@ class UhooSensorEntity(CoordinatorEntity, SensorEntity):
     @property
     def state_class(self) -> str:
         """Return the state class of this entity, from STATE_CLASSES, if any."""
-        return str(STATE_CLASS_MEASUREMENT)
+        return str(SensorStateClass.MEASUREMENT)
 
     @property
     def icon(self) -> str:
@@ -104,8 +103,8 @@ class UhooSensorEntity(CoordinatorEntity, SensorEntity):
         """Return unit of measurement."""
         if self._kind == API_TEMP:
             if self._coordinator.user_settings_temp == "f":
-                return str(TEMP_FAHRENHEIT)
+                return str(UnitOfTemperature.FAHRENHEIT)
             else:
-                return str(TEMP_CELSIUS)
+                return str(UnitOfTemperature.CELSIUS)
         else:
             return str(SENSOR_TYPES[self._kind][ATTR_UNIT_OF_MEASUREMENT])
