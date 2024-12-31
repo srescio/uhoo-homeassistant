@@ -22,6 +22,7 @@ from .const import DOMAIN, LOGGER, PLATFORMS, STARTUP_MESSAGE, UPDATE_INTERVAL
 
 # https://github.com/home-assistant/example-custom-config/tree/master/custom_components
 
+
 async def async_setup(hass: HomeAssistant, config: Config) -> bool:
     """Set up all platforms for this device/entry."""
     return True
@@ -60,9 +61,9 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
 
     hass.data[DOMAIN][config_entry.entry_id] = coordinator
     for platform in PLATFORMS:
-        hass.async_add_job(hass.config_entries.async_forward_entry_setup(
-                config_entry, platform))
-   
+        hass.async_create_task(hass.config_entries.async_forward_entry_setup(
+            config_entry, platform))
+
     return True
 
 
@@ -84,7 +85,8 @@ class UhooDataUpdateCoordinator(DataUpdateCoordinator):
             return self.client.get_devices()  # type: ignore
         except Exception as exception:
             LOGGER.error(
-                f"Error: an exception occurred while attempting to get latest data: {exception}"
+                f"Error: an exception occurred while attempting to get latest data: {
+                    exception}"
             )
             raise UpdateFailed() from exception
 
