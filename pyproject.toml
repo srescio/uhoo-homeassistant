@@ -10,6 +10,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = ">=3.12.0,<3.13"
 pyuhoo = "^0.0.5"
+greenlet = "^3.1.1"
 
 [tool.poetry.dev-dependencies]
 homeassistant = ">=2024.7.0"
@@ -18,8 +19,9 @@ black = "^21.9b0"
 isort = "^5.9.3"
 mypy = "^0.910"
 pre-commit = "^2.15.0"
-pytest = "8.2.0"
-pytest-homeassistant-custom-component = "0.13.144"
+pytest = "8.3.4"
+pytest-homeassistant-custom-component = "0.13.198"
+pytest-asyncio = "^0.24.0"
 flake8-docstrings = "^1.6.0"
 pylint = "^2.11.1"
 pydocstyle = "^6.1.1"
@@ -46,6 +48,8 @@ addopts = "--cov custom_components.uhoo"
 console_output_style = "count"
 timeout = "9"
 testpaths = ["tests"]
+asyncio_mode = "strict"
+asyncio_default_fixture_loop_scope = "function"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

@@ -1,21 +1,29 @@
 """Global fixtures for uHoo integration."""
 
-from unittest.mock import patch
-
 import pytest
+from homeassistant.core import HomeAssistant
+from homeassistant.setup import async_setup_component
 from pyuhoo.device import Device
 from pyuhoo.errors import UnauthorizedError
-
+from unittest.mock import patch
 from .const import MOCK_DEVICE, MOCK_DEVICE_DATA
 
 pytest_plugins = "pytest_homeassistant_custom_component"
 
 
-# This fixture enables loading custom integrations in all tests.
-# Remove to enable selective use of this fixture
-@pytest.fixture(autouse=True)
-def auto_enable_custom_integrations(enable_custom_integrations):
-    yield
+@pytest.fixture
+async def hass() -> HomeAssistant:
+    """Set up a Home Assistant instance for testing."""
+    hass = HomeAssistant()
+    await async_setup_component(hass, "homeassistant", {})
+    await hass.async_block_till_done()
+    return hass
+
+
+@pytest.fixture
+async def enable_custom_integrations(hass: HomeAssistant) -> None:
+    """Enable custom integrations defined in the test dir."""
+    await hass.async_add_executor_job(hass.data.pop, loader.DATA_CUSTOM_COMPONENTS)
 
 
 # This fixture is used to prevent HomeAssistant from attempting to create and dismiss persistent
