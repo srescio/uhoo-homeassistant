@@ -3,8 +3,8 @@
 from unittest.mock import patch
 
 import pytest
-from pyuhoo.device import Device
-from pyuhoo.errors import UnauthorizedError
+from custom_components.uhoo.pyuhoo.pyuhoo.device import Device
+from custom_components.uhoo.pyuhoo.pyuhoo.errors import UnauthorizedError
 
 from .const import MOCK_DEVICE, MOCK_DEVICE_DATA
 

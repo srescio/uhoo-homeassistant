@@ -1,6 +1,6 @@
 """UhooSensorEntity class"""
 
-from pyuhoo.device import Device
+from .pyuhoo.pyuhoo.device import Device
 
 from custom_components.uhoo import UhooDataUpdateCoordinator
 from homeassistant.components.sensor import SensorStateClass, SensorEntity

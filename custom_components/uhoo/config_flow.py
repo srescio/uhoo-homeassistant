@@ -1,7 +1,7 @@
 """Config flow for uHoo."""
 
-from pyuhoo import Client
-from pyuhoo.errors import UnauthorizedError
+from .pyuhoo.pyuhoo import Client
+from .pyuhoo.pyuhoo.errors import UnauthorizedError
 import voluptuous as vol
 
 from homeassistant.config_entries import (
