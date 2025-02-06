@@ -50,29 +50,27 @@ jobs:
         shell: bash
         run: echo ::set-output name=version::$(python -c "import sys; print('-'.join(str(v) for v in sys.version_info))")
 
-      - name: 🏗 Install poetry
-        uses: abatilo/actions-poetry@v2.1.3
-        with:
-          poetry-version: 1.1.8
+      #- name: 🏗 Install poetry
+      #  uses: abatilo/actions-poetry@v2.1.3
+      #  with:
+      #    poetry-version: 1.1.8
 
-      - name: 🔧 Set up cache
-        uses: actions/cache@v2
-        id: cache
-        with:
-          path: .venv
-          key: venv-${{ runner.os }}-${{ steps.full-python-version.outputs.version }}-${{ hashFiles('**/poetry.lock') }}
+      #- name: 🔧 Set up cache
+      #  uses: actions/cache@v2
+      #  id: cache
+      #  with:
+      #    path: .venv
+      #    key: venv-${{ runner.os }}-${{ steps.full-python-version.outputs.version }}-${{ hashFiles('**/poetry.lock') }}
 
-      - name: 🔧 Ensure cache is healthy
-        if: steps.cache.outputs.cache-hit == 'true'
-        shell: bash
-        run: timeout 10s poetry run pip --version || rm -rf .venv
+      #- name: 🔧 Ensure cache is healthy
+      #  if: steps.cache.outputs.cache-hit == 'true'
+      #  shell: bash
+      #  run: timeout 10s poetry run pip --version || rm -rf .venv
 
       - name: 🏗 Install dependencies
         shell: bash
-        run: poetry install
+        run: pip install -e .[dev]
 
       - name: ✅ Run pytest
         shell: bash
-        run: |
-          poetry run \
-            python -m pytest -qq --durations=10 -n auto -p no:sugar
+        run: python -m pytest -qq --durations=10 -n auto -p no:sugar

@@ -1,28 +1,38 @@
-[tool.poetry]
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
 name = "uhoo-homeassistant"
 version = "0.0.7"
 description = "uHoo integration for Home Assistant"
-authors = ["Christopher Sacca <csacca@csacca.net>", "Andrew Leech", "Simone Rescio"]
+authors = [
+    {name = "Christopher Sacca", email = "csacca@csacca.net"},
+    {name = "Andrew Leech"},
+    {name = "Simone Rescio"},
+]
 repository = "https://github.com/andrewleech/uhoo-homeassistant"
 license = "MIT"
 readme = "README.md"
+dependencies = [
+    "pyuhoo @ git+https://github.com/srescio/pyuhoo.git@fix-exception-accessing-data.temp",
+]
+dynamic = ["version"]  # Important for setuptools to handle version
 
-[tool.poetry.dependencies]
-python = ">=3.12.0,<3.13"
-pyuhoo = { git = "https://github.com/srescio/pyuhoo.git", branch = "fix-exception-accessing-data.temp" }
+[tool.setuptools.dynamic]
+version = {attr = "uhoo_homeassistant.__version__"} # Or however you store your version
 
-[tool.poetry.dev-dependencies]
-homeassistant = ">=2024.7.0"
-flake8 = "^3.9.2"
-black = "^21.9b0"
-isort = "^5.9.3"
-mypy = "^0.910"
-pre-commit = "^2.15.0"
-pytest = "8.2.0"
-pytest-homeassistant-custom-component = "0.13.144"
-flake8-docstrings = "^1.6.0"
-pylint = "^2.11.1"
-pydocstyle = "^6.1.1"
+
+[tool.setuptools]
+# Optional: Set package data if you have non-python files
+# package-data = {"*": ["*.json", "*.yaml"]}
+
+# Optional: Add entry points if needed (e.g., for Home Assistant)
+# entry-points = {
+#     "homeassistant.components": [
+#         "uhoo = custom_components.uhoo",
+#     ],
+# }
 
 [tool.isort]
 profile = "black"
@@ -30,7 +40,7 @@ indent = "    "
 force_sort_within_sections = true
 sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
 default_section = "THIRDPARTY"
-known_first_party = ["custom_components", "tests" , "homeassistant"]
+known_first_party = ["custom_components", "tests", "homeassistant"]
 forced_separate = "tests"
 combine_as_imports = true
 
@@ -47,6 +57,20 @@ console_output_style = "count"
 timeout = "9"
 testpaths = ["tests"]
 
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+# Dev dependencies are handled separately during development.
+# You don't list them in the install_requires for a regular pip install.
+# You would install them with pip install -e .[dev]
+[project.optional-dependencies]
+dev = [
+    "homeassistant>=2024.7.0",
+    "flake8^3.9.2",
+    "black^21.9b0",
+    "isort^5.9.3",
+    "mypy^0.910",
+    "pre-commit^2.15.0",
+    "pytest==8.2.0",  # Pinning for consistency
+    "pytest-homeassistant-custom-component==0.13.144", # Pinning for consistency
+    "flake8-docstrings^1.6.0",
+    "pylint^2.11.1",
+    "pydocstyle^6.1.1",
+]
