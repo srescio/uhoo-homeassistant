@@ -1,13 +1,21 @@
 {
   "domain": "uhoo",
   "name": "uHoo",
+  "codeowners": [
+    "@andrewleech",
+    "@csacca",
+    "@srescio"
+  ],
+  "config_flow": true,
   "documentation": "https://github.com/andrewleech/uhoo-homeassistant/",
   "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/andrewleech/uhoo-homeassistant/issues",
-  "version": "0.0.7",
-  "config_flow": true,
-  "codeowners": ["@andrewleech", "@csacca", "@srescio"],
   "requirements": [
-    "pyuhoo @ git+https://github.com/srescio/pyuhoo.git@f6dc1a9138009a0aeac68c4ae3c00df3cf490d8f"
+      "aiohttp>=3.7.4",
+      "click>=8.0.1",
+      "pycryptodome>=3.10.1",
+      "pyyaml>=6.0",
+      "yarl>=1.8.1"
   ]
+  "version": "0.0.7"
 }

@@ -1,38 +1,31 @@
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools>=61.0", "setuptools-scm>=8"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "uhoo-homeassistant"
-version = "0.0.7"
 description = "uHoo integration for Home Assistant"
 authors = [
     {name = "Christopher Sacca", email = "csacca@csacca.net"},
-    {name = "Andrew Leech"},
+    {name = "Andrew Leech", email = "andrew@alelec.net"},
     {name = "Simone Rescio"},
 ]
-repository = "https://github.com/andrewleech/uhoo-homeassistant"
-license = "MIT"
 readme = "README.md"
 dependencies = [
-    "pyuhoo @ git+https://github.com/srescio/pyuhoo.git@fix-exception-accessing-data.temp",
+  "aiohttp>=3.7.4",
+  "click>=8.0.1",
+  "pycryptodome>=3.10.1",
+  "pyyaml>=6.0",
+  "yarl>=1.8.1",
 ]
 dynamic = ["version"]  # Important for setuptools to handle version
 
-[tool.setuptools.dynamic]
-version = {attr = "uhoo_homeassistant.__version__"} # Or however you store your version
+[tool.setuptools_scm]
 
-
-[tool.setuptools]
-# Optional: Set package data if you have non-python files
-# package-data = {"*": ["*.json", "*.yaml"]}
-
-# Optional: Add entry points if needed (e.g., for Home Assistant)
-# entry-points = {
-#     "homeassistant.components": [
-#         "uhoo = custom_components.uhoo",
-#     ],
-# }
+[tool.setuptools.packages.find]
+where = ["custom_components"]
+include = ["uhoo"]
+namespaces = false
 
 [tool.isort]
 profile = "black"
@@ -62,15 +55,15 @@ testpaths = ["tests"]
 # You would install them with pip install -e .[dev]
 [project.optional-dependencies]
 dev = [
-    "homeassistant>=2024.7.0",
-    "flake8^3.9.2",
-    "black^21.9b0",
-    "isort^5.9.3",
-    "mypy^0.910",
-    "pre-commit^2.15.0",
-    "pytest==8.2.0",  # Pinning for consistency
-    "pytest-homeassistant-custom-component==0.13.144", # Pinning for consistency
-    "flake8-docstrings^1.6.0",
-    "pylint^2.11.1",
-    "pydocstyle^6.1.1",
+    "flake8>=3.9.2",
+    "black>=21.9b0",
+    "isort>=5.9.3",
+    "mypy>=0.910",
+    "pre-commit>=2.15.0",
+    "pytest",
+    "pytest-homeassistant-custom-component",
+    "homeassistant>=2023.1.7",
+    "flake8-docstrings>=1.6.0",
+    "pylint>=2.11.1",
+    "pydocstyle>=6.1.1",
 ]
