@@ -1,7 +1,5 @@
 {
   "name": "uHoo",
   "hacs": "1.14.0",
-  "iot_class": "Cloud Polling",
-  "domains": ["sensor"],
   "homeassistant": "2024.7.0"
 }
