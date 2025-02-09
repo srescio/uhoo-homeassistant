@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/ingydotnet/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:andrewleech/pyuhoo.git
+	branch = client_id
+	commit = 777e24087cf879e3a55d18be8d8fe394c383ac13
+	parent = 08f47aa8d21a0b4e779c828ed41dd27ae14fc071
+	method = merge
+	cmdver = 0.4.6
