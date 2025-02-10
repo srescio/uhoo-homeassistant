@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:andrewleech/pyuhoo.git
 	branch = client_id
-	commit = 777e24087cf879e3a55d18be8d8fe394c383ac13
-	parent = 08f47aa8d21a0b4e779c828ed41dd27ae14fc071
+	commit = 139d0f2f34c163e915216ac02a98b863a68496d3
+	parent = 1dfeb040fcb0a9fb6aee5d2051a53579658bcd23
 	method = merge
 	cmdver = 0.4.6
