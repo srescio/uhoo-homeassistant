@@ -16,6 +16,6 @@
       "pycryptodome>=3.10.1",
       "pyyaml>=6.0",
       "yarl>=1.8.1"
-  ]
+  ],
   "version": "0.0.7"
 }
